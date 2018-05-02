@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
  
 f = File.new("output.txt", 'w')
-
+pokemonterminal_path = "path/to/pokemonterminal/images"
 $i = 650
 $num = 720
 while $i < $num  do
@@ -17,7 +17,7 @@ while $i < $num  do
 	  types += t['type']['name']
 	  types += " ".ljust(3) 
 	end
-	image_path = "/Users/jotadiaz/dev/gitstuff/Pokemon-Terminal/Images/Generation VI - Kalos/" + $i.to_s + ".jpg"
+	image_path = "#{pokemonterminal_path}/Pokemon-Terminal/Images/Generation VI - Kalos/" + $i.to_s + ".jpg"
 	puts image_path
 	# Now get the image light-dark threshold
 	threshold = `convert "#{image_path}" -colorspace Gray -format "%[fx:image.mean]" info:`
